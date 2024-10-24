@@ -10,15 +10,15 @@ app.use(express.json()); // Middleware to parse JSON data
 
 // Middleware to allow Cross-Origin Resource Sharing (CORS policy)
 // Option 1: Allow all origins w default of "cors(*)"
-// app.use(cors());
+app.use(cors());
 // Optopn 2: Allow custom origins
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//   })
+// );
 
 app.get("/", (request, response) => {
   console.log(request);
