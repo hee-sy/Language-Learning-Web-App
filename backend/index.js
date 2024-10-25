@@ -1,8 +1,9 @@
 import express from "express";
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
-import router from "./routes/routes.js";
+import userRouter from "./routes/user.routes.js";
 import cors from "cors";
+import Users from "./models/User.js";
 
 const app = express();
 
@@ -20,9 +21,11 @@ app.use(cors());
 //   })
 // );
 
-app.get("/", (request, response) => {
-  console.log(request);
-  return response.status(234).send("Welcome to my Language Learning MERN Web App :)");
+app.use("/user", userRouter);
+
+app.get("/", (req, res) => {
+  console.log(req);
+  return res.status(234).send("Welcome to my Language Learning MERN Web App :)");
 });
 
 mongoose
