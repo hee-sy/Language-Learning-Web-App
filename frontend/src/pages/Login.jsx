@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+import Alert from "../Components/Alert";
+import AlertContext from "../Contexts/alert.context";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  //code for alert
+  const [, setAlert] = useContext(AlertContext);
+  const showAlert = (msg, type) => {
+    setAlert({ text: msg, type: type });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,12 +27,13 @@ const Login = () => {
           navigate("/home");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => showAlert(err.response.data.message, "error"));
   };
 
   return (
     <div>
       <h2>Login</h2>
+      <Alert />
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">

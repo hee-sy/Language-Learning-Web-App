@@ -29,10 +29,10 @@ const loginUser = async (req, res) => {
       if (user.password === password) {
         res.status(200).json(user);
       } else {
-        res.status(401).send({ message: "Invalid credentials" });
+        res.status(401).send({ message: "Incorrect email or password" });
       }
     } else {
-      res.status(404).send({ message: "User not found" });
+      res.status(404).send({ message: "Incorrect email or password" });
     }
   });
 };

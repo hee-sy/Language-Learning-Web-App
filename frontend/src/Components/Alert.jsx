@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import AlertContext from "../Contexts/alert.context";
 
-const alertStyles = "font-normal text-base rounded-md p-2 m-2";
+const alertStyles =
+  "font-normal text-xs p-1 m-2 text-center md:text-base rounded-md md:p-2";
 
 const severityStyles = {
   success: "bg-green-200 text-green-500",
