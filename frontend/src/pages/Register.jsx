@@ -25,7 +25,8 @@ const Register = () => {
       .post("http://localhost:5555/user/register", { name, email, password })
       .then((result) => {
         console.log(result);
-        navigate("/user/login");
+        alert("User created successfully");
+        navigate(`/user/login`, { state: { userData: result.data } });
       })
       .catch((err) => showAlert(err.response.data.message, "error"));
     // to get the message from the response object, we need to use err.response.data.message,
@@ -44,7 +45,7 @@ const Register = () => {
           <p>Already have an account?</p>
           <Link
             to="/user/login"
-            className="mx-2 text-xs font-bold text-lime-600 hover:object-scale-down max-[342px]:py-2 md:text-sm"
+            className="mx-2 text-xs font-bold text-lime-600 hover:scale-90 max-[342px]:py-2 md:text-sm"
           >
             Login
           </Link>
