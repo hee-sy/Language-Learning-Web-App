@@ -36,7 +36,7 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         if (result.status === 200) {
-          navigate(`/${result.data._id}/home`, { replace: true }); // Use replace to clear the stack
+          navigate(`/${result.data._id}/iolsq`, { replace: true }); // Use replace to clear the stack
         }
       })
       .catch((err) => showAlert(err.response.data.message, "error"));
