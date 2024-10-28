@@ -5,7 +5,7 @@ import axios from "axios";
 import Alert from "../Components/Alert";
 import AlertContext from "../Contexts/alert.context";
 
-import Logo from "../Components/Logo";
+import { Logo } from "../Components/Logo";
 
 const Register = () => {
   const [name, setName] = useState("");
