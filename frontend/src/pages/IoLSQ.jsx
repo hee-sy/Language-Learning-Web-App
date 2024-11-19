@@ -371,7 +371,27 @@ const IoLSQ = () => {
         </span>
       </div>
 
-      <div id="questions" className="mx-5 mt-20">
+      {curr === 1 && (
+        <div id="welcome" className="mx-5 mt-20 md:mx-20">
+          <h1 className="my-5 text-2xl font-extrabold md:my-20 md:text-center md:text-5xl">
+            Welcome, 😀!
+          </h1>
+          <div className="text-sm md:w-[60%] md:justify-self-center md:text-lg">
+            <p>
+              Before starting your learning journey, we invite you to complete a
+              quick questionnaire.
+            </p>
+            <br />
+            <p>
+              This will help us understand your learning preferences and
+              customize the interface to suit your unique learning style, making
+              your experience more effective and engaging.
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div id="questions" className="mx-5 mt-20 flex flex-col">
         {questionsRef.current.map((ques) => (
           <div
             id={`question${ques.num.toString()}`}
@@ -454,7 +474,7 @@ const IoLSQ = () => {
                 replace: true,
               });
             }}
-            className="rounded-lg bg-lime-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-lime-800 focus:outline-none focus:ring-4 focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800"
+            className="justify-self-end rounded-lg bg-lime-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-lime-800 focus:outline-none focus:ring-4 focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800"
           >
             Submit
           </button>
