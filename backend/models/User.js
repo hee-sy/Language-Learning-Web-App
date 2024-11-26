@@ -16,6 +16,16 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter password"],
     },
+    learningStyle: {
+      AR: {},
+      SI: {},
+      VV: {},
+      SG: {},
+    },
+    quizResults: {
+      type: Array,
+      default: [],
+    },
   },
   {
     timestamps: true,

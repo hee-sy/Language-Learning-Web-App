@@ -1,8 +1,11 @@
 import { useParams } from "react-router-dom";
 import { Svg } from "../Components/Logo";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function IoLSQ_Result() {
-  let { ans } = useParams();
+  let { id, ans } = useParams();
+  const navigate = useNavigate();
   console.log(ans);
   ans = ans.split(","); //convert string to array
 
@@ -12,9 +15,24 @@ function IoLSQ_Result() {
   console.log(VV_res);
   console.log(SG_res);
 
+  const handleContinue = (id, AR_res, SI_res, VV_res, SG_res) => {
+    axios
+      .put(`http://localhost:5555/user/update-learning-style`, {
+        id: id,
+        learningStyle: { AR: AR_res, SI: SI_res, VV: VV_res, SG: SG_res },
+      })
+      .then((result) => {
+        console.log(result);
+        if (result.status === 200) {
+          navigate(`/${id}/LessonB`);
+        }
+      })
+      .catch((err) => alert(err.response.data.message, "error"));
+  };
+
   return (
-    <div>
-      <div className="mx-5 flex flex-row justify-self-center">
+    <div className="flex flex-col">
+      <div className="mx-5 flex flex-row self-center justify-self-center">
         <Svg w="9rem" h="9rem" />
         <h1 className="mx-2 mb-10 mt-16 text-sm font-medium text-lime-700 md:text-3xl">
           Your learning style based on the test is :
@@ -208,6 +226,29 @@ function IoLSQ_Result() {
           </div>
         </div>
       </div>
+
+      <button
+        type="button"
+        onClick={() => handleContinue(id, AR_res, SI_res, VV_res, SG_res)}
+        className="my-5 inline-flex items-center self-center rounded-lg bg-lime-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-lime-800 focus:outline-none focus:ring-4 focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800 md:my-10"
+      >
+        Continue
+        <svg
+          className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 10"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M1 5h12m0 0L9 1m4 4L9 9"
+          />
+        </svg>
+      </button>
     </div>
   );
 }
@@ -280,6 +321,12 @@ function calcResult(ans) {
   // console.log(`VV_res: ${JSON.stringify(VV_res, null, 4)}`);
   // console.log(`SG_res: ${JSON.stringify(SG_res, null, 4)}`);
 
+  //calculate score (range: -11 to 11)
+  AR_res["score"] = AR_res.ab == "b" ? AR_res.num : AR_res.num * -1; //if active, score is negative
+  SI_res["score"] = SI_res.ab == "b" ? SI_res.num : SI_res.num * -1; //if sensing, score is negative
+  VV_res["score"] = VV_res.ab == "b" ? VV_res.num : VV_res.num * -1; //if visual, score is negative
+  SG_res["score"] = SG_res.ab == "b" ? SG_res.num : SG_res.num * -1; //if sequential, score is negative
+
   return [AR_res, SI_res, VV_res, SG_res];
 }
 
@@ -291,3 +338,8 @@ export default IoLSQ_Result;
 //a,a,a,b,b,a,a,a,b,a,a,a,a,b,a,a,b,a,a,b,b,a,a,a,a,a,a,b,a,a,a,a,a,a,a,a,a,a,a,a,b,a,a,a
 //a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a
 //b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b
+
+//link
+/*
+http://localhost:5173/672b0266e12768b715b54e00/iolsq/results/a,a,a,b,b,a,a,a,b,a,a,a,a,b,a,a,b,a,a,b,b,a,a,a,a,a,a,b,a,a,a,a,a,a,a,a,a,a,a,a,b,a,a,a
+*/

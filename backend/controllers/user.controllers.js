@@ -37,4 +37,38 @@ const loginUser = async (req, res) => {
   });
 };
 
-export { createUser, loginUser };
+const updateLearningStyle = async (req, res) => {
+  const { id, learningStyle } = req.body;
+  try {
+    const user = await Users.findOne({ _id: id });
+    if (user) {
+      //update learning styles
+      user.learningStyle.AR = learningStyle.AR;
+      user.learningStyle.SI = learningStyle.SI;
+      user.learningStyle.VV = learningStyle.VV;
+      user.learningStyle.SG = learningStyle.SG;
+      await user.save(); //save() is a method provided by mongoose to save the updated document
+      res.status(200).json(user.learningStyle);
+    } else {
+      res.status(404).send({ message: "User not found" });
+    }
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+const getLearningStyle = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await Users.findOne({ _id: id });
+    if (user) {
+      res.status(200).json(user.learningStyle);
+    } else {
+      res.status(404).send({ message: "User cannnot found" });
+    }
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+export { createUser, loginUser, updateLearningStyle, getLearningStyle };
