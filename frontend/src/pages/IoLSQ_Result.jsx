@@ -58,7 +58,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${AR_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-sm md:leading-6`}
+              className={`${AR_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${AR_res.num}/11 (${AR_res.cat})`}
             </span>
@@ -78,7 +78,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${AR_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:text-sm md:leading-10`}
+              className={`${AR_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${AR_res.num}/11 (${AR_res.cat})`}
             </span>
@@ -105,7 +105,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${SI_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-sm md:leading-6`}
+              className={`${SI_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${SI_res.num}/11 (${SI_res.cat})`}
             </span>
@@ -125,7 +125,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${SI_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:text-sm md:leading-10`}
+              className={`${SI_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${SI_res.num}/11 (${SI_res.cat})`}
             </span>
@@ -152,7 +152,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${VV_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-sm md:leading-6`}
+              className={`${VV_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${VV_res.num}/11 (${VV_res.cat})`}
             </span>
@@ -172,7 +172,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${VV_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:text-sm md:leading-10`}
+              className={`${VV_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${VV_res.num}/11 (${VV_res.cat})`}
             </span>
@@ -199,7 +199,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${SG_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-sm md:leading-6`}
+              className={`${SG_res.ab == "a" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${SG_res.num}/11 (${SG_res.cat})`}
             </span>
@@ -219,7 +219,7 @@ function IoLSQ_Result() {
               }}
             />
             <span
-              className={`${SG_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:text-sm md:leading-10`}
+              className={`${SG_res.ab == "b" ? "block" : "hidden"} mx-2 text-nowrap text-xs font-semibold leading-6 text-lime-700 group-hover:text-red-500 dark:text-white md:text-lg md:leading-10`}
             >
               {`${SG_res.num}/11 (${SG_res.cat})`}
             </span>

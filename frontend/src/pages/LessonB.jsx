@@ -4,6 +4,7 @@ import axios from "axios";
 import Spinner from "../Components/Spinner";
 import { Hiragana, Katakana } from "../Components/LearningObjects/Hiragana";
 import { MnemonicsP1 } from "../Components/LearningObjects/Mnemonics";
+import { VideosP1 } from "../Components/LearningObjects/Videos";
 
 export const LSContext = React.createContext();
 
@@ -39,7 +40,7 @@ const LessonB = () => {
         console.log(err);
         setLoading(false);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="relative flex flex-col items-center justify-center">
@@ -113,39 +114,43 @@ const LessonB = () => {
         )}
       </div>
 
-      <div className="flex flex-col items-center justify-center lg:mx-72">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla libero
-        temporibus eius similique tempore neque incidunt dicta quibusdam,
-        laudantium magni totam dolores. Illum molestiae iusto explicabo
-        praesentium eaque, est sint. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nulla libero temporibus eius similique tempore neque
-        incidunt dicta quibusdam, laudantium magni totam dolores. Illum
-        molestiae iusto explicabo praesentium eaque, est sint. Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Nulla libero temporibus eius
-        similique tempore neque incidunt dicta quibusdam, laudantium magni totam
-        dolores. Illum molestiae iusto explicabo praesentium eaque, est sint.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla libero
-        temporibus eius similique tempore neque incidunt dicta quibusdam,
-        laudantium magni totam dolores. Illum molestiae iusto explicabo
-        praesentium eaque, est sint. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nulla libero temporibus eius similique tempore neque
-        incidunt dicta quibusdam, laudantium magni totam dolores. Illum
-        molestiae iusto explicabo praesentium eaque, est sint. Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Nulla libero temporibus eius
-        similique tempore neque incidunt dicta quibusdam, laudantium magni totam
-        dolores. Illum molestiae iusto explicabo praesentium eaque, est sint.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla libero
-        temporibus eius similique tempore neque incidunt dicta quibusdam,
-        laudantium magni totam dolores. Illum molestiae iusto explicabo
-        praesentium eaque, est sint. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nulla libero temporibus eius similique tempore neque
-        incidunt dicta quibusdam, laudantium magni totam dolores. Illum
-        molestiae iusto explicabo praesentium eaque, est sint. Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Nulla libero temporibus eius
-        similique tempore neque incidunt dicta quibusdam, laudantium magni totam
-        dolores. Illum molestiae iusto explicabo praesentium eaque, est sint.
-        <MnemonicsP1 />
-      </div>
+      <LSContext.Provider value={[lsScore, setLSScore]}>
+        <div className="flex flex-col items-center justify-center lg:mx-72">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla libero
+          temporibus eius similique tempore neque incidunt dicta quibusdam,
+          laudantium magni totam dolores. Illum molestiae iusto explicabo
+          praesentium eaque, est sint. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Nulla libero temporibus eius similique tempore neque
+          incidunt dicta quibusdam, laudantium magni totam dolores. Illum
+          molestiae iusto explicabo praesentium eaque, est sint. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Nulla libero temporibus
+          eius similique tempore neque incidunt dicta quibusdam, laudantium
+          magni totam dolores. Illum molestiae iusto explicabo praesentium
+          eaque, est sint. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Nulla libero temporibus eius similique tempore neque incidunt
+          dicta quibusdam, laudantium magni totam dolores. Illum molestiae iusto
+          explicabo praesentium eaque, est sint. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Nulla libero temporibus eius similique
+          tempore neque incidunt dicta quibusdam, laudantium magni totam
+          dolores. Illum molestiae iusto explicabo praesentium eaque, est sint.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla libero
+          temporibus eius similique tempore neque incidunt dicta quibusdam,
+          laudantium magni totam dolores. Illum molestiae iusto explicabo
+          praesentium eaque, est sint. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Nulla libero temporibus eius similique tempore neque
+          incidunt dicta quibusdam, laudantium magni totam dolores. Illum
+          molestiae iusto explicabo praesentium eaque, est sint. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Nulla libero temporibus
+          eius similique tempore neque incidunt dicta quibusdam, laudantium
+          magni totam dolores. Illum molestiae iusto explicabo praesentium
+          eaque, est sint. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Nulla libero temporibus eius similique tempore neque incidunt
+          dicta quibusdam, laudantium magni totam dolores. Illum molestiae iusto
+          explicabo praesentium eaque, est sint.
+          <MnemonicsP1 />
+          <VideosP1 />
+        </div>
+      </LSContext.Provider>
     </div>
   );
 };

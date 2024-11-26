@@ -1,12 +1,28 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { LSContext } from "../../pages/LessonB";
 
 const MnemonicsP1 = () => {
   const [opens, setOpens] = useState([false, false, false, false]);
+  const [lsScore, setLSScore] = useContext(LSContext);
+
+  const incrementVisInt = () => {
+    if (lsScore.VV !== undefined && lsScore.SI !== undefined) {
+      {
+        if (lsScore.VV > -11 && lsScore.SI < 11) {
+          setLSScore({ ...lsScore, VV: lsScore.VV - 1, SI: lsScore.SI + 1 });
+        } else if (lsScore.VV > -11) {
+          setLSScore({ ...lsScore, VV: lsScore.VV - 1 });
+        } else if (lsScore.SI < 11) {
+          setLSScore({ ...lsScore, SI: lsScore.SI + 1 });
+        }
+      }
+    }
+  };
 
   return (
     <div className="flex flex-row items-center justify-center self-center justify-self-center">
       <h2 className="me-4 text-base font-semibold text-gray-700 dark:text-gray-300">
-        Check out these Kanji's in picture:
+        Check out these Kanji{"'"}s in picture:
       </h2>
       {/* buttons */}
       <div className="inline-flex rounded-md shadow-sm" role="group">
@@ -23,6 +39,7 @@ const MnemonicsP1 = () => {
             );
 
             // TODO: increment Vis & Intuitive
+            incrementVisInt();
           }}
           className="rounded-s-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-lime-700 focus:z-10 focus:text-lime-700 focus:ring-2 focus:ring-lime-700 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:text-white dark:focus:ring-lime-500"
         >
@@ -41,6 +58,7 @@ const MnemonicsP1 = () => {
             );
 
             // TODO: increment Vis & Intuitive
+            incrementVisInt();
           }}
           className="border-b border-t border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-lime-700 focus:z-10 focus:text-lime-700 focus:ring-2 focus:ring-lime-700 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:text-white dark:focus:ring-lime-500"
         >
@@ -59,6 +77,7 @@ const MnemonicsP1 = () => {
             );
 
             // TODO: increment Vis & Intuitive
+            incrementVisInt();
           }}
           className="rounded-e-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-lime-700 focus:z-10 focus:text-lime-700 focus:ring-2 focus:ring-lime-700 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:text-white dark:focus:ring-lime-500"
         >
@@ -77,6 +96,7 @@ const MnemonicsP1 = () => {
             );
 
             // TODO: increment Vis & Intuitive
+            incrementVisInt();
           }}
           className="rounded-e-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-lime-700 focus:z-10 focus:text-lime-700 focus:ring-2 focus:ring-lime-700 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:text-white dark:focus:ring-lime-500"
         >
@@ -132,10 +152,10 @@ const MnemonicsModal = ({ ops, setOps, i, imgPath, readAs, meaning }) => {
           }),
         );
       }}
-      className={`fixed inset-0 flex items-center justify-center bg-black/20 transition-colors ${ops[i] ? "visible" : "invisible"}`}
+      className={`fixed inset-0 z-10 flex items-center justify-center bg-black/20 transition-colors ${ops[i] ? "visible" : "invisible"}`}
     >
       {/* content */}
-      <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+      <div className="z-20 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
         <img
           className="h-full w-full rounded-t-lg object-cover"
           src={imgPath}
