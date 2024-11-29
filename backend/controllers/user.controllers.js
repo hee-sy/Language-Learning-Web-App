@@ -71,4 +71,26 @@ const getLearningStyle = async (req, res) => {
   }
 };
 
-export { createUser, loginUser, updateLearningStyle, getLearningStyle };
+const updateEOL = async (req, res) => {
+  const { id, part } = req.params;
+  const { vocab, express, grammar } = req.body;
+  const index = part - 1;
+  try {
+    const user = await Users.findOne({
+      _id: id,
+    });
+    if (user) {
+      user.eolSummaries.vocab[index] = vocab;
+      user.eolSummaries.express[index] = express;
+      user.eolSummaries.grammar[index] = grammar;
+      await user.save();
+      res.status(200).json(user.eolSummaries);
+    } else {
+      res.status(404).send({ message: "User not found" });
+    }
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+export { createUser, loginUser, updateLearningStyle, getLearningStyle, updateEOL };

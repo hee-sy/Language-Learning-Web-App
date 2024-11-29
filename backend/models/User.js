@@ -22,6 +22,11 @@ const UserSchema = mongoose.Schema(
       VV: {},
       SG: {},
     },
+    eolSummaries: {
+      vocab: [],
+      express: [],
+      grammar: [],
+    },
     quizResults: {
       type: Array,
       default: [],

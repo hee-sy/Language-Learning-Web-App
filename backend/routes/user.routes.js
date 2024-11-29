@@ -1,5 +1,5 @@
 import express from "express";
-import { createUser, loginUser, updateLearningStyle, getLearningStyle } from "../controllers/user.controllers.js";
+import { createUser, loginUser, updateLearningStyle, getLearningStyle, updateEOL } from "../controllers/user.controllers.js";
 
 const router = express.Router();
 
@@ -12,5 +12,7 @@ router.post("/login", loginUser);
 router.put("/update-learning-style", updateLearningStyle);
 
 router.get("/get-learning-style/:id", getLearningStyle);
+
+router.post("/update-eol-summaries/:part/:id", updateEOL);
 
 export default router;

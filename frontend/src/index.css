@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 
+above specifies the precedence of the tailwind classes,
+base classes are the most important, then components, then utilities
+base classes examples: text, bg, border, etc.
+components classes examples: button, card, etc.
+utilities classes examples: margin, padding, etc.
+*/
