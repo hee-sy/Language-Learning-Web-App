@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { LSContext } from "../../pages/LessonB";
 import "flowbite";
 
@@ -68,10 +68,10 @@ const ReflectPrompt1 = () => {
 
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed ${isOpen ? "block" : "hidden"} inset-0 z-10 bg-lime-900/50 transition-all`}
+        className={`fixed ${isOpen ? "block" : "hidden"} inset-0 z-0 bg-lime-900/50 transition-all`}
       />
       <div
-        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl transition-all`}
+        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl justify-self-center transition-all`}
       >
         {/* Modal content */}
         <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">
@@ -173,7 +173,7 @@ const ReflectPrompt2 = () => {
         className={`fixed ${isOpen ? "block" : "hidden"} inset-0 z-10 bg-lime-900/50 transition-all`}
       />
       <div
-        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl transition-all`}
+        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl justify-self-center transition-all`}
       >
         {/* Modal content */}
         <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">
@@ -300,7 +300,7 @@ const ReflectPrompt3 = () => {
         className={`fixed ${isOpen ? "block" : "hidden"} inset-0 z-10 bg-lime-900/50 transition-all`}
       />
       <div
-        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl transition-all`}
+        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl justify-self-center transition-all`}
       >
         {/* Modal content */}
         <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">
@@ -433,7 +433,7 @@ const ReflectPrompt4 = () => {
         className={`fixed ${isOpen ? "block" : "hidden"} inset-0 z-10 bg-lime-900/50 transition-all`}
       />
       <div
-        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl transition-all`}
+        className={`${isOpen ? "block" : "hidden"} top-10 z-20 max-h-full w-full max-w-2xl justify-self-center transition-all`}
       >
         {/* Modal content */}
         <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">

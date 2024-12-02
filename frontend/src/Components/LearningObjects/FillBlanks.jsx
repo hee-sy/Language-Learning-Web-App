@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { LSContext } from "../../pages/LessonB";
+import { useState, useContext, useLayoutEffect, useEffect } from "react";
+import { LastLSContext, LSContext } from "../../pages/LessonB";
 
 const AnsGroup = ({ isAnsed, setIsAnsed, ans, options, translations }) => {
   return (
@@ -94,10 +94,12 @@ const AnsGroup = ({ isAnsed, setIsAnsed, ans, options, translations }) => {
 
 const FillBlanks1 = () => {
   const [lsScore, setLSScore] = useContext(LSContext);
+  const [lastLS] = useContext(LastLSContext);
   const [isAnsed1, setIsAnsed1] = useState(false);
   const [isSubmitted1, setIsSubmitted1] = useState(false);
   const [isAnsed2, setIsAnsed2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const incrementAct = () => {
     if (lsScore.AR !== undefined) {
@@ -109,13 +111,15 @@ const FillBlanks1 = () => {
     }
   };
 
-  const isActive = false; //TODO: AR depend on last learning style score
+  useEffect(() => {
+    setIsActive(lastLS.AR < 0); //if AR is negative, isActive is true
+  }, [lastLS.AR]);
 
   return (
     <>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -188,7 +192,7 @@ const FillBlanks1 = () => {
       </div>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -265,10 +269,12 @@ const FillBlanks1 = () => {
 };
 const FillBlanks2 = () => {
   const [lsScore, setLSScore] = useContext(LSContext);
+  const [lastLS] = useContext(LastLSContext);
   const [isAnsed1, setIsAnsed1] = useState(false);
   const [isSubmitted1, setIsSubmitted1] = useState(false);
   const [isAnsed2, setIsAnsed2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const incrementAct = () => {
     if (lsScore.AR !== undefined) {
@@ -280,13 +286,15 @@ const FillBlanks2 = () => {
     }
   };
 
-  const isActive = false; //TODO: AR depend on last learning style score
+  useEffect(() => {
+    setIsActive(lastLS.AR < 0); //if AR is negative, isActive is true
+  }, [lastLS.AR]);
 
   return (
     <>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -365,7 +373,7 @@ const FillBlanks2 = () => {
       </div>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -447,10 +455,12 @@ const FillBlanks2 = () => {
 
 const FillBlanks3 = () => {
   const [lsScore, setLSScore] = useContext(LSContext);
+  const [lastLS] = useContext(LastLSContext);
   const [isAnsed1, setIsAnsed1] = useState(false);
   const [isSubmitted1, setIsSubmitted1] = useState(false);
   const [isAnsed2, setIsAnsed2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const incrementAct = () => {
     if (lsScore.AR !== undefined) {
@@ -462,13 +472,15 @@ const FillBlanks3 = () => {
     }
   };
 
-  const isActive = false; //TODO: AR depend on last learning style score
+  useEffect(() => {
+    setIsActive(lastLS.AR < 0); //if AR is negative, isActive is true
+  }, [lastLS.AR]);
 
   return (
     <div>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -546,7 +558,7 @@ const FillBlanks3 = () => {
       </div>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -628,6 +640,7 @@ const FillBlanks3 = () => {
 
 const FillBlanks4 = () => {
   const [lsScore, setLSScore] = useContext(LSContext);
+  const [lastLS] = useContext(LastLSContext);
   const [isAnsed1, setIsAnsed1] = useState(false);
   const [isSubmitted1, setIsSubmitted1] = useState(false);
   const [isAnsed2, setIsAnsed2] = useState(false);
@@ -636,6 +649,7 @@ const FillBlanks4 = () => {
   const [isSubmitted3, setIsSubmitted3] = useState(false);
   const [isAnsed4, setIsAnsed4] = useState(false);
   const [isSubmitted4, setIsSubmitted4] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const incrementAct = () => {
     if (lsScore.AR !== undefined) {
@@ -647,13 +661,15 @@ const FillBlanks4 = () => {
     }
   };
 
-  const isActive = false; //TODO: AR depend on last learning style score
+  useEffect(() => {
+    setIsActive(lastLS.AR < 0); //if AR is negative, isActive is true
+  }, [lastLS.AR]);
 
   return (
     <>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -726,7 +742,7 @@ const FillBlanks4 = () => {
       </div>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -798,7 +814,7 @@ const FillBlanks4 = () => {
       </div>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -868,7 +884,7 @@ const FillBlanks4 = () => {
       </div>
       <div
         onClick={() => incrementAct()}
-        className="my-3 w-fit rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+        className="my-3 w-fit justify-self-center rounded-lg border border-gray-200 bg-white text-sm text-gray-500 shadow-sm transition-opacity duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
       >
         <div className="rounded-t-lg border-b border-gray-200 bg-gray-50 px-3 py-2 dark:border-gray-600 dark:bg-gray-700">
           <h3 className="font-semibold text-gray-900 dark:text-white">

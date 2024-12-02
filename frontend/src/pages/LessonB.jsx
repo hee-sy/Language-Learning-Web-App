@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../Components/Spinner";
@@ -39,7 +39,16 @@ import {
   DialPrac3,
   DialPrac4,
 } from "../Components/LearningObjects/DialPrac";
-import { StorySeq1 } from "../Components/LearningObjects/StorySeq";
+import {
+  StorySeq11,
+  StorySeq12,
+  StorySeq21,
+  StorySeq22,
+  StorySeq31,
+  StorySeq32,
+  StorySeq41,
+  StorySeq42,
+} from "../Components/LearningObjects/StorySeq";
 import {
   Fulltext,
   FulltextP1,
@@ -48,6 +57,26 @@ import {
   FulltextP4,
 } from "../Components/LearningObjects/Fulltext";
 import EOLSum from "../Components/LearningObjects/EOLSum";
+import {
+  BigPicEx1,
+  BigPicEx2,
+  BigPicEx3,
+  BigPicEx4,
+} from "../Components/LearningObjects/BigPicEx";
+import {
+  RWScena1,
+  RWScena2,
+  RWScena3,
+  RWScena4,
+} from "../Components/LearningObjects/RWScena";
+import {
+  GramPatRecog1,
+  GramPatRecog2,
+  GramPatRecog3,
+  GramPatRecog4,
+} from "../Components/LearningObjects/GramPatRecog";
+import LessonBP1 from "./LessonBP1";
+import JapanCharIntro from "../Components/LearningObjects/JapanCharIntro";
 
 export const LSContext = React.createContext();
 export const LastLSContext = React.createContext();
@@ -69,6 +98,79 @@ const LessonB = () => {
   });
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+  const CountDownTime = 50;
+  const [timeLeft, setTimeLeft] = useState(CountDownTime); // Timer starts at 40 seconds
+  const [testToggle, setTestToggle] = useState(false);
+  const navigate = useNavigate();
+  const [curr, setCurr] = useState(1);
+  const parts = [
+    { part: 1 },
+    { part: 2 },
+    { part: 3 },
+    { part: 4 },
+    { part: 5 },
+    { part: 6 },
+  ];
+  const partRef = useRef([]);
+  switch (curr) {
+    case 1:
+      partRef.current = <JapanCharIntro />;
+      break;
+    case 2:
+      partRef.current = <Fulltext />;
+      break;
+    case 3:
+      partRef.current = <LessonBP1 id={id} />;
+      break;
+    case 4:
+      partRef.current = <LessonBP1 id={id} />;
+      break;
+    case 5:
+      partRef.current = <LessonBP1 id={id} />;
+      break;
+    case 6:
+      partRef.current = <LessonBP1 id={id} />;
+      break;
+    default:
+      partRef.current = <JapanCharIntro />;
+      break;
+  }
+
+  const incrementGlo = () => {
+    if (lsScore.SG !== undefined) {
+      if (lsScore.SG < 11) {
+        setLSScore({ ...lsScore, SG: lsScore.SG + 1 });
+      }
+    }
+  };
+
+  // Timer to increment Seq
+  const resetTimer = () => {
+    setTimeLeft(CountDownTime); // Reset timer
+  };
+
+  useEffect(() => {
+    // Set up the interval for the countdown
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, []);
+
+  useEffect(() => {
+    // When timer reaches 0, increment seq and reset the timer
+    if (timeLeft === 0) {
+      // increment Seq
+      if (lsScore.SG !== undefined) {
+        if (lsScore.SG > -11) {
+          setLSScore({ ...lsScore, SG: lsScore.SG - 1 });
+        }
+      }
+      setTimeLeft(CountDownTime);
+    }
+    console.log(timeLeft);
+  }, [lsScore, timeLeft]);
 
   useEffect(() => {
     setLoading(true);
@@ -93,12 +195,10 @@ const LessonB = () => {
   }, [id]);
 
   useEffect(() => {
-    // when the page unmount,
-    console.log("mount");
+    console.log("LB mount");
+
     return () => {
-      //TODO: move this to when LessonBPage*.jsx unmounts, not LessonB.jsx
-      //update last learning style score state variable
-      console.log("unmount");
+      console.log("LB unmount");
 
       //TODO：update learning style score in DB
     };
@@ -162,7 +262,10 @@ const LessonB = () => {
         )}
       </div>
 
-      <div className="fixed top-0 z-50 w-full bg-slate-300 text-center">
+      <div
+        id="top-current-score-status"
+        className="fixed top-0 z-50 w-full bg-slate-300 text-center"
+      >
         {loading ? (
           <Spinner size="4" />
         ) : (
@@ -182,8 +285,20 @@ const LessonB = () => {
       <LSContext.Provider value={[lsScore, setLSScore]}>
         <LastLSContext.Provider value={[lastLS, setLastLS]}>
           <div className="relative top-16 mx-3 flex flex-col items-center justify-center divide-y lg:mx-72">
-            <FulltextP1 />
-            <StorySeq1 />
+            {partRef.current}
+
+            {/* <FulltextP1 />
+            <StorySeq11 />
+            <StorySeq12 />
+            <StorySeq21 />
+            <StorySeq22 />
+            <StorySeq31 />
+            <StorySeq32 />
+            <StorySeq41 />
+            <StorySeq42 />
+            <GramPatRecog4 />
+            <RWScena4 />
+            <BigPicEx4 />
             <EOLSum id={id} part={1} />
             <DialPrac4 />
             <FillBlanks3 />
@@ -192,10 +307,55 @@ const LessonB = () => {
             <MnemonicsP2 />
             <MnemonicsP3 />
             <MnemonicsP4 />
-            <TransPrac4 />
+            <TransPrac4 /> */}
           </div>
         </LastLSContext.Provider>
       </LSContext.Provider>
+
+      <nav
+        aria-label="Page navigation example"
+        className="fixed bottom-0 left-0 z-50 mb-3 flex w-screen flex-row justify-center"
+      >
+        <ul className="inline-flex -space-x-px text-sm">
+          <li>
+            <button
+              onClick={() => {
+                curr === 1 ? setCurr(1) : setCurr(curr - 1);
+                window.scrollTo(0, 0);
+              }}
+              className="ms-0 flex h-8 items-center justify-center rounded-s-lg border border-e-0 border-gray-300 bg-white px-3 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none active:text-lime-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              Previous
+            </button>
+          </li>
+          {parts.map((pt, i) => (
+            <li key={i}>
+              <button
+                onClick={() => {
+                  incrementGlo();
+                  resetTimer();
+                  setCurr(pt.part);
+                  window.scrollTo(0, 0);
+                }}
+                className={`flex h-8 items-center justify-center px-3 focus:outline-none ${curr === pt.part ? "border border-gray-300 bg-lime-600 text-white dark:border-gray-700 dark:bg-gray-700 dark:text-white" : "border border-gray-300 bg-white leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"}`}
+              >
+                {pt.part}
+              </button>
+            </li>
+          ))}
+          <li>
+            <button
+              onClick={() => {
+                curr === 6 ? setCurr(6) : setCurr(curr + 1);
+                window.scrollTo(0, 0);
+              }}
+              className="flex h-8 items-center justify-center rounded-e-lg border border-gray-300 bg-white px-3 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none active:text-lime-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

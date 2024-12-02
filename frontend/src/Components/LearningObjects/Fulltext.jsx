@@ -4,7 +4,7 @@ import { LSContext } from "../../pages/LessonB";
 
 const Fulltext = () => {
   return (
-    <div className="w-full text-left text-sm xl:text-base">
+    <div className="w-full pb-20 pt-5 text-left text-sm xl:pt-20 xl:text-base">
       <h1 className="text-wrap text-3xl font-extrabold dark:text-white md:text-5xl">
         Lesson Overview:
         <br />
