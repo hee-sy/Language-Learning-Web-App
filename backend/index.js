@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
+// import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.routes.js";
 import cors from "cors";
@@ -20,6 +20,9 @@ app.use(cors());
 //     allowedHeaders: ["Content-Type"],
 //   })
 // );
+
+const mongoDBURL = process.env.mongoDBURL;
+const PORT = process.env.PORT;
 
 app.use("/user", userRouter);
 
