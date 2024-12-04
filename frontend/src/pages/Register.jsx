@@ -22,7 +22,10 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // prevent the default form submission so that we can use axios to submit the form data to the server
     axios
-      .post("http://localhost:5555/user/register", { name, email, password })
+      .post(
+        "https://chamelearn-a-japanese-language-learning.onrender.com/user/register",
+        { name, email, password },
+      )
       .then((result) => {
         console.log(result);
         alert("User created successfully");

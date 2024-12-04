@@ -32,7 +32,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5555/user/login", { email, password })
+      .post(
+        "https://chamelearn-a-japanese-language-learning.onrender.com/user/login",
+        { email, password },
+      )
       .then((result) => {
         console.log(result);
         if (result.status === 200) {

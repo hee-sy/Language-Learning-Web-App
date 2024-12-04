@@ -20,7 +20,9 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5555/user/get-learning-style/${id}`)
+      .get(
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/get-learning-style/${id}`,
+      )
       .then((res) => {
         if (res.status === 200) {
           console.log(`isObjectEmpty: ${isObjectEmpty(res.data)}`);

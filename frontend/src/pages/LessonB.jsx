@@ -111,7 +111,9 @@ const LessonB = () => {
     setLoading(true);
     //get learning style score
     axios
-      .get(`http://localhost:5555/user/get-learning-style/${id}`)
+      .get(
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/get-learning-style/${id}`,
+      )
       .then((res) => {
         if (res.status === 200) {
           setLSScore({
@@ -362,15 +364,18 @@ const handleBacktoHome = (
 ) => {
   //update learning style score to the database
   axios
-    .post(`http://localhost:5555/user/update-learning-style-score`, {
-      id: id,
-      learningStyle: {
-        AR_score: AR_score,
-        SI_score: SI_score,
-        VV_score: VV_score,
-        SG_score: SG_score,
+    .post(
+      `https://chamelearn-a-japanese-language-learning.onrender.com/user/update-learning-style-score`,
+      {
+        id: id,
+        learningStyle: {
+          AR_score: AR_score,
+          SI_score: SI_score,
+          VV_score: VV_score,
+          SG_score: SG_score,
+        },
       },
-    })
+    )
     .then((result) => {
       console.log(result);
       if (result.status === 200) {

@@ -17,7 +17,7 @@ const EOLSum = ({ id, lesson, part }) => {
     };
     axios
       .post(
-        `http://localhost:5555/user/update-eol-summaries/${id}/${lesson}/${part}`,
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/update-eol-summaries/${id}/${lesson}/${part}`,
         data,
       )
       .then((res) => {
@@ -43,7 +43,9 @@ const EOLSum = ({ id, lesson, part }) => {
   useEffect(() => {
     console.log(`EOLSum ${part} mounted`);
     axios
-      .get(`http://localhost:5555/user/get-eol-summaries/${id}/${lesson}`)
+      .get(
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/get-eol-summaries/${id}/${lesson}`,
+      )
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data);
@@ -151,7 +153,7 @@ const EOLSum_A = ({ id, lesson, part }) => {
     };
     axios
       .post(
-        `http://localhost:5555/user/update-eol-summaries/${id}/${lesson}/${part}`,
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/update-eol-summaries/${id}/${lesson}/${part}`,
         data,
       )
       .then((res) => {
@@ -167,7 +169,9 @@ const EOLSum_A = ({ id, lesson, part }) => {
   useEffect(() => {
     console.log(`EOLSum ${part} mounted`);
     axios
-      .get(`http://localhost:5555/user/get-eol-summaries/${id}/${lesson}`)
+      .get(
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/get-eol-summaries/${id}/${lesson}`,
+      )
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data);

@@ -17,10 +17,13 @@ function IoLSQ_Result() {
 
   const handleContinue = (id, AR_res, SI_res, VV_res, SG_res) => {
     axios
-      .put(`http://localhost:5555/user/update-learning-style`, {
-        id: id,
-        learningStyle: { AR: AR_res, SI: SI_res, VV: VV_res, SG: SG_res },
-      })
+      .put(
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/update-learning-style`,
+        {
+          id: id,
+          learningStyle: { AR: AR_res, SI: SI_res, VV: VV_res, SG: SG_res },
+        },
+      )
       .then((result) => {
         console.log(result);
         if (result.status === 200) {

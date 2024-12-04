@@ -52,11 +52,14 @@ const FinalQuizResult = () => {
 
   const handleContinue = (id, score, ans_stats) => {
     axios
-      .post(`http://localhost:5555/user/update-final-quiz-result`, {
-        id: id,
-        score: score,
-        ans_stats: ans_stats,
-      })
+      .post(
+        `https://chamelearn-a-japanese-language-learning.onrender.com/user/update-final-quiz-result`,
+        {
+          id: id,
+          score: score,
+          ans_stats: ans_stats,
+        },
+      )
       .then((result) => {
         console.log(result);
         if (result.status === 200) {
