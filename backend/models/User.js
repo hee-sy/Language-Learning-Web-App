@@ -23,13 +23,28 @@ const UserSchema = mongoose.Schema(
       SG: {},
     },
     eolSummaries: {
-      vocab: [],
-      express: [],
-      grammar: [],
+      vocab: {
+        LessonA: [],
+        LessonB: [],
+      },
+      express: {
+        LessonA: [],
+        LessonB: [],
+      },
+      grammar: {
+        LessonA: [],
+        LessonB: [],
+      },
     },
     quizResults: {
-      type: Array,
-      default: [],
+      ans_stats: {
+        type: Array,
+        default: [],
+      },
+      score: {
+        type: Number,
+        default: 0,
+      },
     },
   },
   {

@@ -6,27 +6,12 @@ import { TransPrac1 } from "../Components/LearningObjects/TransPrac";
 import { FillBlanks1 } from "../Components/LearningObjects/FillBlanks";
 import { ReflectPrompt1 } from "../Components/LearningObjects/ReflectPrompt";
 import { VideosP1 } from "../Components/LearningObjects/Videos";
-import {
-  BigPicEx1,
-  BigPicEx2,
-  BigPicEx3,
-  BigPicEx4,
-} from "../Components/LearningObjects/BigPicEx";
-import {
-  RWScena1,
-  RWScena2,
-  RWScena3,
-  RWScena4,
-} from "../Components/LearningObjects/RWScena";
-import {
-  GramPatRecog1,
-  GramPatRecog2,
-  GramPatRecog3,
-  GramPatRecog4,
-} from "../Components/LearningObjects/GramPatRecog";
+import { BigPicEx1 } from "../Components/LearningObjects/BigPicEx";
+import { RWScena1 } from "../Components/LearningObjects/RWScena";
+import { GramPatRecog1 } from "../Components/LearningObjects/GramPatRecog";
 import { DialPrac1 } from "../Components/LearningObjects/DialPrac";
 import { StorySeq11, StorySeq12 } from "../Components/LearningObjects/StorySeq";
-import EOLSum from "../Components/LearningObjects/EOLSum";
+import { EOLSum } from "../Components/LearningObjects/EOLSum";
 
 const LessonBP1 = ({ id }) => {
   const [lsScore] = useContext(LSContext);
@@ -48,7 +33,6 @@ const LessonBP1 = ({ id }) => {
 
   return (
     <div className="flex flex-col items-center justify-center divide-y pb-20 pt-5 xl:pt-20">
-      AR: {lastLS.AR} | SI: {lastLS.SI} | VV: {lastLS.VV} | SG: {lastLS.SG}
       {/* Learn */}
       <FulltextP1 />
       <MnemonicsP1 />
@@ -69,7 +53,7 @@ const LessonBP1 = ({ id }) => {
       )}
       <TransPrac1 />
       <ReflectPrompt1 />
-      {lastLS.AR > 0 ? <EOLSum id={id} part={1} /> : ""}
+      {lastLS.AR > 0 ? <EOLSum id={id} lesson="LessonB" part={1} /> : ""}
     </div>
   );
 };

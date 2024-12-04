@@ -8,6 +8,19 @@ const Logo = () => {
     </div>
   );
 };
+const LogoSideBar = () => {
+  return (
+    <div
+      id="logosidebar"
+      className="m-5️ text-center text-xl font-extrabold max-xl:pt-10 md:text-2xl"
+    >
+      <span className="text-lime-500">Cha</span>
+      <span className="text-lime-700">m</span>
+      <span className="text-lime-900">e</span>
+      <span className="text-neutral-950">learn</span>
+    </div>
+  );
+};
 
 const Svg = (props) => {
   return (
@@ -44,4 +57,4 @@ const Svg = (props) => {
   );
 };
 
-export { Logo, Svg };
+export { Logo, LogoSideBar, Svg };
