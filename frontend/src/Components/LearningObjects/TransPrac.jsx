@@ -152,7 +152,8 @@ const TransPrac2 = () => {
   );
 };
 const TransPrac3 = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted1, setIsSubmitted1] = useState(false);
+  const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [lsScore, setLSScore] = useContext(LSContext);
 
   const incrementSen = () => {
@@ -198,7 +199,7 @@ const TransPrac3 = () => {
         placeholder="Write your translation here..."
         defaultValue={""}
       />
-      <div className={`${isSubmitted ? "block" : "hidden"} bg-lime-100`}>
+      <div className={`${isSubmitted1 ? "block" : "hidden"} bg-lime-100`}>
         <label
           htmlFor="translation1"
           className="mt-2 block text-sm font-medium text-lime-600 dark:text-gray-400"
@@ -223,7 +224,7 @@ const TransPrac3 = () => {
           if (document.getElementById("translation1").value === "") {
             alert("Please write your translation first.");
           } else {
-            setIsSubmitted(true);
+            setIsSubmitted1(true);
           }
           return;
         }}
@@ -253,7 +254,7 @@ const TransPrac3 = () => {
         placeholder="Write your translation here..."
         defaultValue={""}
       />
-      <div className={`${isSubmitted ? "block" : "hidden"} bg-lime-100`}>
+      <div className={`${isSubmitted2 ? "block" : "hidden"} bg-lime-100`}>
         <label
           htmlFor="translation2"
           className="mt-2 block text-sm font-medium text-lime-600 dark:text-gray-400"
@@ -276,7 +277,7 @@ const TransPrac3 = () => {
           if (document.getElementById("translation2").value === "") {
             alert("Please write your translation first.");
           } else {
-            setIsSubmitted(true);
+            setIsSubmitted2(true);
           }
           return;
         }}
@@ -492,7 +493,8 @@ const TransPrac2_A = () => {
   );
 };
 const TransPrac3_A = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted1, setIsSubmitted1] = useState(false);
+  const [isSubmitted2, setIsSubmitted2] = useState(false);
 
   return (
     <div className="w-full">
@@ -524,7 +526,7 @@ const TransPrac3_A = () => {
         placeholder="Write your translation here..."
         defaultValue={""}
       />
-      <div className={`${isSubmitted ? "block" : "hidden"} bg-lime-100`}>
+      <div className={`${isSubmitted1 ? "block" : "hidden"} bg-lime-100`}>
         <label
           htmlFor="translation1"
           className="mt-2 block text-sm font-medium text-lime-600 dark:text-gray-400"
@@ -547,7 +549,7 @@ const TransPrac3_A = () => {
           if (document.getElementById("translation1").value === "") {
             alert("Please write your translation first.");
           } else {
-            setIsSubmitted(true);
+            setIsSubmitted1(true);
           }
           return;
         }}
@@ -574,7 +576,7 @@ const TransPrac3_A = () => {
         placeholder="Write your translation here..."
         defaultValue={""}
       />
-      <div className={`${isSubmitted ? "block" : "hidden"} bg-lime-100`}>
+      <div className={`${isSubmitted2 ? "block" : "hidden"} bg-lime-100`}>
         <label
           htmlFor="translation2"
           className="mt-2 block text-sm font-medium text-lime-600 dark:text-gray-400"
@@ -595,7 +597,7 @@ const TransPrac3_A = () => {
           if (document.getElementById("translation2").value === "") {
             alert("Please write your translation first.");
           } else {
-            setIsSubmitted(true);
+            setIsSubmitted2(true);
           }
           return;
         }}

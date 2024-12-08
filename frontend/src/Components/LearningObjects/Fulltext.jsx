@@ -995,7 +995,7 @@ const FulltextP3 = () => {
   const kadouka = (
     <PopoverContent
       title="かどうか (ka dou ka)"
-      meaning="Guitar."
+      meaning="whether or not."
       usage={
         <>
           • means {"whether or not"} and is used to express uncertainty or ask
@@ -1817,7 +1817,7 @@ const FulltextP3_A = () => {
   const kadouka = (
     <PopoverContent
       title="かどうか (ka dou ka)"
-      meaning="Guitar."
+      meaning="whether or not."
       usage={
         <>
           • means {"whether or not"} and is used to express uncertainty or ask
