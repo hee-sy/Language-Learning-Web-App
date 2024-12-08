@@ -298,6 +298,7 @@ const LessonB = () => {
                 );
               }}
               icon={HomeIcon}
+              className="hover:cursor-pointer"
             >
               Back to Home
             </Sidebar.Item>

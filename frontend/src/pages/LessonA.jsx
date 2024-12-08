@@ -135,28 +135,6 @@ const LessonA = () => {
         <LastLSContext.Provider value={[lastLS, setLastLS]}>
           <div className="relative top-16 mx-3 flex flex-col items-center justify-center divide-y lg:mx-72">
             {partRef.current}
-
-            {/* <FulltextP1 />
-            <StorySeq11 />
-            <StorySeq12 />
-            <StorySeq21 />
-            <StorySeq22 />
-            <StorySeq31 />
-            <StorySeq32 />
-            <StorySeq41 />
-            <StorySeq42 />
-            <GramPatRecog4 />
-            <RWScena4 />
-            <BigPicEx4 />
-            <EOLSum id={id} part={1} />
-            <DialPrac4 />
-            <FillBlanks3 />
-            <ReflectPrompt4 />
-            <MnemonicsP1 />
-            <MnemonicsP2 />
-            <MnemonicsP3 />
-            <MnemonicsP4 />
-            <TransPrac4 /> */}
           </div>
         </LastLSContext.Provider>
       </LSContext.Provider>
@@ -205,6 +183,7 @@ const LessonA = () => {
                 handleBacktoHome(id, navigate);
               }}
               icon={HomeIcon}
+              className="hover:cursor-pointer"
             >
               Back to Home
             </Sidebar.Item>
