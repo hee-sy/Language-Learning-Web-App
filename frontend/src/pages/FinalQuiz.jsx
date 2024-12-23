@@ -466,7 +466,7 @@ const FinalQuiz = () => {
       ),
       a: "Actually",
       b: "After all",
-      c: "Your're right",
+      c: "You're right",
       d: "Recently",
     },
     {
@@ -591,10 +591,6 @@ const FinalQuiz = () => {
   const CountDownTime = 900;
   const [timeLeft, setTimeLeft] = useState(CountDownTime); // Timer starts at 15mins (900seconds)
 
-  // Timer to increment Seq
-  const resetTimer = () => {
-    setTimeLeft(CountDownTime); // Reset timer
-  };
   // Convert timeLeft into mm:ss format
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);

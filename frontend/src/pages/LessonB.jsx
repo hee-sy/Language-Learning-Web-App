@@ -33,7 +33,7 @@ const LessonB = () => {
   });
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
-  const CountDownTime = 50;
+  const CountDownTime = 30;
   const [timeLeft, setTimeLeft] = useState(CountDownTime); // Timer starts at 40 seconds
   const navigate = useNavigate();
   const [isSideOpen, setIsSideOpen] = useState(false);
