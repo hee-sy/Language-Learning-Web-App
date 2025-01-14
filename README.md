@@ -21,7 +21,7 @@ Steps:
 1. Open the project folder as a Visual Studio Code project.
 2. Open two terminal instances by using [**Ctrl + Shift + `** ] twice.
 3. Run `cd frontend` on one of the terminals and `cd backend` on the other. One will serve as the frontend server and the other as the backend server.
-4. Run `npm run dev` on both terminal to start the project. Your terminals should show this(image below) when it is started: ![alt text](image.png)
+4. Run `npm run dev` on both terminals to start the project.
 5. In the frontend terminal, press [**o + Enter**] to open Chamelearn in your browser.
 
 ## Credits
